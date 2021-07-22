@@ -49,16 +49,16 @@ itchat.auto_login(hotReload=True)
 
 #以下是发送到群聊
 
-addr_list = ['x','x'] #输入发送天气地点  
+addr_list = ['无锡','上海'] #输入发送天气地点  
 white_list = []#白名单
-chatroomData = str(itchat.search_chatrooms(name='x'))#填群聊关键词，如有群聊‘呵呵呵’和‘呵哈嘿’，name=‘呵’会抓群到两个
+chatroomData = str(itchat.search_chatrooms(name='小家庭'))#填群聊关键词，如有群聊‘呵呵呵’和‘呵哈嘿’，name=‘呵’会抓群到两个
 chatroomID = re.findall("(?<='UserName': ')[^']*",chatroomData)#用正则表达式抓取含有关键字的群的id
 for i in range(len(chatroomID)):
     if(chatroomID[i][1]=='@'):#因为包含@开头的个人id，所以区分，具体可print chatroomData查看
         white_list.append(chatroomID[i])
 
 #以下是给个人到群聊
-personaluser=itchat.search_friends(name='xxx')  #输入ta的备注  
+personaluser=itchat.search_friends(name='翟张青')  #输入ta的备注  
 personalusername=personaluser[0]['UserName']  
 personaladdr='x'
 
